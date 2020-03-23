@@ -3,14 +3,14 @@ resources:
   - name: be_gitRepo
     type: GitRepo
     configuration:
-      path: tsuyo/java-backend
+      path: tsuyo/jf-pipelines-qs-java-backend
       gitProvider: myGitHub
  
   # Git repo for front-end source
   - name: fe_gitRepo
     type: GitRepo
     configuration:
-      path: tsuyo/vue-frontend
+      path: tsuyo/jf-pipelines-qs-vue-frontend
       gitProvider: myGitHub
  
   # Build info for the application
