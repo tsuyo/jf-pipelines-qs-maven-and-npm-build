@@ -30,7 +30,7 @@ resources:
       buildNumber: 1
 
 pipelines:
-  - name: demo_application
+  - name: quickstart_maven_and_npm_build 
     steps:
       - name: bld_backend
         type: MvnBuild
