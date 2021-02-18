@@ -1,0 +1,23 @@
+{
+  "name": "jfrog-pipelines-quickstart--npm-build",
+  "version": "1.0.0",
+  "description": "Sources for [Pipeline Example: Npm Build](https://www.jfrog.com/confluence/display/JFROG/Pipeline+Example%3A+Npm+Build)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tsuyo/jf-pipelines-qs-maven-and-npm-build.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tsuyo/jf-pipelines-qs-maven-and-npm-build/issues"
+  },
+  "homepage": "https://github.com/tsuyo/jf-pipelines-qs-maven-and-npm-build#readme",
+  "dependencies": {
+    "debug": "^4.3.1"
+  }
+}

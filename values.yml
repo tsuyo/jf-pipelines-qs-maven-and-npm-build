@@ -1,0 +1,5 @@
+repoPath: tsuyo/jfrog-pipelines-quickstart--npm-build
+gitProvider: tsuyo_github
+artifactory: artifactory
+buildRepo: npm
+publishRepo: npm
