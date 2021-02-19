@@ -2,40 +2,40 @@ template: true
 valuesFilePath: ./values.yml
 
 resources:
-  - name: npm_repo_jfp_example
+  - name: {{ .Values.gitRepo.name }}
     type: GitRepo
     configuration:
       gitProvider: {{ .Values.gitProvider }}
-      path: {{ .Values.repoPath }}
+      path: {{ .Values.gitRepo.path }}
       # branches:
       #   include: master
 
-  - name: npm_buildinfo_jfp_example
+  - name: {{ .Values.build.name }}
     type: BuildInfo
     configuration:
       sourceArtifactory: {{ .Values.artifactory }}
 
 pipelines:
-  - name: npm_pipeline_jfp_example
+  - name: {{ .Values.build.name }}
     steps:
-      - name: npm_build_step
+      - name: npm_build
         type: NpmBuild
         configuration:
-          repositoryName: {{ .Values.publishRepo }}
+          resolverRepo: {{ .Values.artifactoryRepo.resolver.name }}
           sourceLocation: .
           integrations:
             - name:  {{ .Values.artifactory }}
           inputResources:
-            - name: npm_repo_jfp_example
+            - name: {{ .Values.gitRepo.name }}
 
-      - name: npm_publish_step
+      - name: npm_publish
         type: NpmPublish
         configuration:
-          repositoryName: {{ .Values.buildRepo }}
+          repositoryName: {{ .Values.artifactoryRepo.target.name }}
           autoPublishBuildInfo: true
           integrations:
             - name: {{ .Values.artifactory }}
           inputSteps:
-            - name: npm_build_step
+            - name: npm_build
           outputResources:
-            - name: npm_buildinfo_jfp_example
+            - name: {{ .Values.build.name }}
