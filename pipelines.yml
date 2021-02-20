@@ -28,8 +28,13 @@ pipelines:
           inputResources:
             - name: {{ .Values.gitRepo.name }}
         execution:
+          # this is a workaround to change artifact name every time
+          # if the same artifact name is used and it's used in reelase bundle,
+          # you can't delete that file (can't override it) and a step might fail
           onStart:
-            - env
+            - pushd ${res_{{ .Values.gitRepo.name }}_resourcePath}
+            - echo $(jq ".version=\"snapshot-${run_number}\"" package.json) > package.json
+            - popd
 
       - name: npm_publish
         type: NpmPublish
