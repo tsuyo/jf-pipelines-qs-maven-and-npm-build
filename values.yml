@@ -1,12 +1,12 @@
-gitProvider: tsuyo_github
 artifactory: artifactory
+pipelines:
+  name: quickstart_npm_build
 gitRepo:
   name: github__tsuyo__jfrog_pipelines_quickstart__npm_build
+  provider: tsuyo_github
   path: tsuyo/jfrog-pipelines-quickstart--npm-build
 artifactoryRepo:
   resolver:
     name: npm
   target:
     name: npm
-build:
-  name: quickstart_npm_build
