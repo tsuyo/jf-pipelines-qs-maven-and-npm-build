@@ -27,6 +27,9 @@ pipelines:
             - name:  {{ .Values.artifactory }}
           inputResources:
             - name: {{ .Values.gitRepo.name }}
+        execution:
+          onStart:
+            - env
 
       - name: npm_publish
         type: NpmPublish
